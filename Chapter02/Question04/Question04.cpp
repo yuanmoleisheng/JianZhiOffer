@@ -11,16 +11,13 @@
 
 using namespace std;
 
-bool Find(int arr[][4], const int& num) {
+bool Find(int arr[][4], const int& row, const int& colomn, const int& num) {
 	if (num < 0 || num > 100) {
 		cout << "The number you entered is out of range!\n";
 		return false;
 	}
-	//int m = 0, n = 0;//m用于获取数组的行数，n获取列数
-	//m = sizeof(arr) / sizeof(arr[0]);
-	//n = sizeof(arr[0]) / sizeof(arr[0][0]);
-	for (int i = 0; i < 4; ++i) {
-		for (int j = 0; j < 4; ++j) {
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < colomn; ++j) {
 			if (arr[i][j] == num) {
 				return true;
 			}
@@ -47,7 +44,7 @@ int main() {
 	int num = -1;
 	cin >> num;
 	bool res = false;
-	res = Find(test, num);
+	res = Find(test, 4, 4, num);
 	if (res) {
 		cout << "TRUE" << endl;
 	}
